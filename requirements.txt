@@ -2,3 +2,4 @@ yfinance
 pandas
 sqlite3
 sklearn
+logging

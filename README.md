@@ -16,7 +16,7 @@ This repository contains the project for the "Programming for Data Analytics" co
 
 ## About
 
-This project analyses and predicts currency trends for USD, GBP, EUR, and Bitcoin. By employing a systematic methodology, the analysis includes exploring trends, measuring volatility, smoothing data, decomposing time series, forecasting, and creating interactive visualizations. The insights from this project can assist in understanding currency behaviours and making data-driven decisions.
+This project analyses and predicts currency trends for USD, GBP, BTC about EUR. By employing a systematic methodology, the analysis includes exploring trends, measuring volatility, smoothing data, decomposing time series, forecasting, and creating interactive visualizations. The insights from this project can assist in understanding currency behaviours and making data-driven decisions.
 
 ## README.md
 
@@ -30,8 +30,7 @@ This project focuses on analyzing and predicting currency trends for USD, GBP, E
 
 #### Overview:
 
-This project analyses and predicts currency trends for USD, GBP, EUR, and Bitcoin. By following a systematic approach, the analysis will include trend exploration,
-volatility measurement, data smoothing, time-series decomposition, forecasting, and interactive visualisations.
+This project analyses and predicts currency trends for USD, GBP, Bitcoin in relation to EUR. By following a systematic approach, the analysis will include trend exploration, volatility measurement, data smoothing, time-series decomposition, forecasting, and interactive visualisations.
 
 ---
 
@@ -50,7 +49,7 @@ volatility measurement, data smoothing, time-series decomposition, forecasting, 
    - **Rule**: Ensure the dataset is free from errors, missing values, and inconsistencies.
    - **Strategy**:
      - Use forward-filling or interpolation techniques to handle missing values.
-     - Standardize date formats to YYYY-MM-DD.
+     - Standardise date formats to YYYY-MM-DD.
      - Normalize Bitcoin exchange rates or other data points to enable meaningful comparisons with traditional currencies.
 
 3. **Exploratory Data Analysis (EDA)**
@@ -115,7 +114,7 @@ volatility measurement, data smoothing, time-series decomposition, forecasting, 
    - **Visualizations**:
      - Trend lines for each currency.
      - Volatility comparison charts.
-     - Interactive visualisations for exploring data dynamically.
+     - Interactive visualisations for exploring data dynamically (Bonus Features).
 
    - **Final Report**: Include insights, observations, and potential real-world implications of the trends analysed.
 
@@ -139,8 +138,11 @@ The repository includes the following files and structure:
 
 - `data/`: A folder containing subdirectories: 
     * `csv/`: A folder that stores CSV files.
+      * `raw/`: A folder that stored raw CSV files.
+      * `allData/`: A folder that stores merged, cleaned CSV files.
     * `db/`: A folder stores a database.
-- `analysingCurrencyTrends`: A Jupyter Notebook that includes a plot visualizing temperature over time.
+- `analysingCurrencyTrends`: A Jupyter Notebook that analyzes and predicts currency trends.
+- `functions.py`: A file that contains functions used in the project.
 - `.gitignore`: A file to specify which files and directories should not be tracked by Git.
 - `README.md`: This file, which provides an overview of the repository.
 - `requirements.tx`t`: Dependencies needed to run the Jupyter Notebook.
