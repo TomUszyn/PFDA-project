@@ -139,7 +139,7 @@ The repository includes the following files and structure:
 - `data/`: A folder containing subdirectories: 
     * `csv/`: A folder that stores CSV files.
       * `raw/`: A folder that stored raw CSV files.
-      * `allData/`: A folder that stores merged, cleaned CSV files.
+      * `allcurrencies/`: A folder that stores merged, cleaned CSV files.
     * `db/`: A folder stores a database.
 - `analysingCurrencyTrends`: A Jupyter Notebook that analyzes and predicts currency trends.
 - `functions.py`: A file that contains functions used in the project.
