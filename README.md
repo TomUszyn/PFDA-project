@@ -18,11 +18,6 @@ This repository contains the project for the "Programming for Data Analytics" co
 
 This project analyses and predicts currency trends for USD, GBP, BTC about EUR. By employing a systematic methodology, the analysis includes exploring trends, measuring volatility, smoothing data, decomposing time series, forecasting, and creating interactive visualizations. The insights from this project can assist in understanding currency behaviours and making data-driven decisions.
 
-## README.md
-
-### About
-
-This project focuses on analyzing and predicting currency trends for USD, GBP, EUR, and Bitcoin. By employing a systematic methodology, the analysis includes exploring trends, measuring volatility, smoothing data, decomposing time-series, forecasting, and creating interactive visualizations. The insights from this project can assist in understanding currency behaviors and making data-driven decisions.
 
 ---
 
@@ -30,7 +25,7 @@ This project focuses on analyzing and predicting currency trends for USD, GBP, E
 
 #### Overview:
 
-This project analyses and predicts currency trends for USD, GBP, Bitcoin in relation to EUR. By following a systematic approach, the analysis will include trend exploration, volatility measurement, data smoothing, time-series decomposition, forecasting, and interactive visualisations.
+This project analyses and predicts currency trends for USD, GBP, Bitcoin in relation to EUR. By following a systematic approach, the analysis will include trend exploration, volatility measurement, data smoothing, time-series decomposition, and forecasting.
 
 ---
 
@@ -89,15 +84,16 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
      - Use linear regression for basic forecasting, keeping the approach interpretable and transparent.
      - Evaluate the accuracy of predictions by splitting the data into training and test sets.
 
-6. **Visualization**
+**Tips for Effectively Achieving Your Project Goals**
+
+1. **Visualization**
 
    - **Rule**: Use clear and visually appealing plots to communicate findings effectively.
    - **Strategy**:
      - Create interactive visualisations to allow dynamic exploration of trends (e.g., with dropdown menus for selecting currencies).
      - Label axes, add titles, and use consistent colour schemes for clarity.
-     - Combine static plots (e.g., line charts) with interactive elements to enhance engagement.
-
-7. **Documentation**
+    
+2. **Documentation**
 
    - **Rule**: Maintain comprehensive and clear documentation for the project.
    - **Strategy**:
@@ -105,7 +101,7 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
      - Clearly outline each step in markdown or explanatory text within the project notebook.
      - Summarise key findings and insights at the end of the analysis.
 
-8. **Deliverables**
+3. **Deliverables**
 
    - **Clean Data Files**:
      - Provide the cleaned and processed dataset in CSV format.
@@ -118,16 +114,15 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
 
    - **Final Report**: Include insights, observations, and potential real-world implications of the trends analysed.
 
-9. **Best Practices**
+4. **Best Practices**
 
    - Always validate your data sources to avoid bias or inaccuracies.
    - Break down complex tasks into smaller, manageable steps.
    - Keep visualisations simple and intuitive, ensuring they convey the intended message.
    - Regularly save progress and version-control your work using platforms like GitHub.
 
-10. **Bonus Features**
+5. **Bonus Features**
 
-    - Incorporate an interactive dashboard for data exploration (e.g., using Plotly Dash or Streamlit).
     - Explore the impact of external factors (e.g., inflation, major global events) on currency trends.
 
 ---
