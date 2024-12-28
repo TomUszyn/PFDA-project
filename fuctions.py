@@ -91,3 +91,5 @@ def plotClosePrices(df, title='Close Prices'):
 # Example usage
 # plotClosePrices(normalisedZscore2y, title='Historical Close Prices for Currencies')
 
+
+
