@@ -1,5 +1,9 @@
 import logging
 import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from matplotlib import font_manager
+
 
 # Configure the logger to include timestamps
 logging.basicConfig(level=logging.INFO, filename="warnings.log", filemode="a",
@@ -36,3 +40,54 @@ def flattenColumns(df):
     # Flatten multi-index columns to single level
     df.columns = ['Datetime' if isinstance(col, tuple) and col[0] == 'Datetime' 
                   else '_'.join(col).strip() for col in df.columns]
+    
+    
+def plotClosePrices(df, title='Close Prices'):
+    """
+    Function to plot 'Close' prices for a given DataFrame.
+    
+    Parameters:
+    - df: DataFrame to plot.
+    - title: Title for the plot (default is 'Close Prices').
+    """
+    # Ensure the index is in datetime format
+    df.index = pd.to_datetime(df.index, errors='coerce')
+
+    # Filter columns that contain '_Close'
+    columnsToPlot = [col for col in df.columns if '_Close' in col]
+    
+    # Determine the appropriate datetime format based on the data
+    datetime_format = '%Y-%m-%d'
+    if any(df.index.minute):  # If there are non-zero minutes, include time
+        datetime_format = '%Y-%m-%d %H:%M'
+
+    # Plot the selected columns
+    plt.figure(figsize=(12, 6))
+    for column in columnsToPlot:
+        plt.plot(df.index, df[column], label=column)
+    
+    # Customize plot appearance
+    plt.xlabel('Datetime', fontsize=12, fontweight='bold')
+    plt.ylabel('Normalised Close Price', fontsize=12, fontweight='bold')
+
+    # Set the title passed in the parameter
+    plt.title(title, fontsize=14, fontweight='bold', pad=20)
+
+    plt.xticks(rotation=45, fontsize=10)
+    # Format x-axis dynamically based on the data
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter(datetime_format))
+    
+    plt.grid(True)
+
+    # Customize the legend as you requested
+    plt.legend(loc='upper left', bbox_to_anchor=(1.003, 1), title='Currency Pairs',     
+               frameon=False, fancybox=True, shadow=True, fontsize=8, 
+               title_fontproperties=font_manager.FontProperties(weight='bold', size=11), labelspacing=1.5)
+    
+    # Show plot
+    plt.tight_layout()
+    plt.show()
+
+# Example usage
+# plotClosePrices(normalisedZscore2y, title='Historical Close Prices for Currencies')
+
