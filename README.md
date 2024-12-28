@@ -51,7 +51,7 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
 
    - **Rule**: Begin with basic statistical summaries and visualizations to understand the data.
    - **Strategy**:
-     - Use line charts to visualize historical trends.
+     - Use line charts to visualise historical trends.
      - Compute descriptive statistics such as each currency's mean, median, standard deviation, and range.
      - Explore relationships between currencies using correlation matrices and heatmaps.
 

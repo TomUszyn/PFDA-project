@@ -93,3 +93,40 @@ def plotClosePrices(df, title='Close Prices'):
 
 
 
+
+def descriptiveStatisticsWithSource(df, columns, analysisType):
+    """
+    Calculate descriptive statistics for specified columns in a DataFrame and include the source of the data.
+
+    Parameters:
+    - df: DataFrame to analyze.
+    - columns: List of column names to calculate statistics for.
+    - analysisType: String indicating the source of the data.
+
+    Returns:
+    - A DataFrame with descriptive statistics, including the source column.
+    """
+    results = []
+    for column in columns:
+        if column in df.columns:
+            # Collect statistics
+            stats = {
+                'column': column,
+                'source': analysisType,  # Add source information
+                'description': (
+                    "Exchange rate of USD to EUR" if "USDEUR" in column else
+                    "Exchange rate of GBP to EUR" if "GBPEUR" in column else
+                    "Exchange rate of BTC to EUR" if "BTC-EUR" in column else
+                    f"Statistics for {column}"
+                ),
+                'median': df[column].median(),
+                'mean': df[column].mean(),
+                'standardDeviation': df[column].std(),
+                'range': df[column].max() - df[column].min()
+            }
+            results.append(stats)
+        else:
+            print(f"Column '{column}' not found in the DataFrame.")
+
+    # Create a DataFrame for the results
+    return pd.DataFrame(results)
