@@ -1,5 +1,6 @@
 import logging
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import font_manager
@@ -130,3 +131,29 @@ def descriptiveStatisticsWithSource(df, columns, analysisType):
 
     # Create a DataFrame for the results
     return pd.DataFrame(results)
+
+
+
+
+def plotCorrelationMatrix(df, columns, title='Correlation Matrix'):
+    """
+    Function to plot a correlation matrix heatmap for specific columns in a DataFrame.
+    
+    Parameters:
+    - df: DataFrame containing the data.
+    - columns: List of column names to calculate the correlation matrix.
+    - title: Title for the heatmap (default: 'Correlation Matrix').
+    """
+    # Compute correlation matrix for the specified columns
+    correlation_matrix = df[columns].corr()
+
+    # Plot the heatmap
+    plt.figure(figsize=(8, 6))  # Adjust size for better visibility
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', cbar=True, linewidths=0.5)
+    
+    # Set the title for the plot
+    plt.title(title)
+    plt.show()
+
+# Example usage
+# plotCorrelationMatrix(normalisedZscore2y, ['USDEUR_Close', 'GBPEUR_Close', 'BTC-EUR_Close'], title='Correlation Matrix of Exchange Rates')
