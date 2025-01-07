@@ -157,3 +157,54 @@ def plotCorrelationMatrix(df, columns, title='Correlation Matrix'):
 
 # Example usage
 # plotCorrelationMatrix(normalisedZscore2y, ['USDEUR_Close', 'GBPEUR_Close', 'BTC-EUR_Close'], title='Correlation Matrix of Exchange Rates')
+
+
+
+
+
+
+def plotOriginalAndRollingAverages(df, columns, windowSizes=[7, 30], title='Original vs Rolling Averages'):
+    """
+    Function to plot the original 'Close' prices and rolling averages for specified columns.
+    
+    Parameters:
+    - df: DataFrame containing the data.
+    - columns: List of column names to plot the rolling averages.
+    - window_sizes: List of window sizes for rolling averages to compare (default: [7, 30]).
+    - title: Title for the plot (default: 'Original vs Rolling Averages').
+    """
+    # Plot the original 'Close' prices
+    plt.figure(figsize=(20, 8))
+    
+    # Loop through each column to plot the original and rolling averages
+    for column in columns:
+        # Plot the original values
+        plt.plot(df.index, df[column], label=f'{column} Original', alpha=0.7)
+        
+        # Loop through the different window sizes to plot rolling averages
+        for window in windowSizes:
+            rollAvg = df[column].rolling(window=window).mean()
+            plt.plot(df.index, rollAvg, label=f'{column} {window}-Day Rolling', linestyle='--', linewidth=2)
+    
+    # Customize plot appearance
+    plt.xlabel('Datetime')
+    plt.ylabel('Close Price')
+    plt.title(title)
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    
+    # Customize the legend as per your request
+    plt.legend(loc='upper left', bbox_to_anchor=(1.003, 1), title='Currency Pairs',     
+               frameon=False, fancybox=True, shadow=True, fontsize=8, 
+               title_fontproperties=plt.matplotlib.font_manager.FontProperties(weight='bold', size=11), labelspacing=1.5)
+    
+    # Display the plot
+    plt.tight_layout()
+    plt.show()
+
+# Example usage for a DataFrame with 'Close' prices and a range of window sizes
+# plotOriginalAndRollingAverages(normalisedZscore2y, 
+#                                columns=['USDEUR=X_Close', 'GBPEUR=X_Close', 'BTC-EUR_Close'], 
+#                                windowSizes=[30],  # Single window size, can be [7], [30], or any custom list
+#                                title='Original vs Rolling Averages for Exchange Rates')
+
