@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import font_manager
+import statsmodels.api as sm
 
 
 # Configure the logger to include timestamps
@@ -207,4 +208,55 @@ def plotOriginalAndRollingAverages(df, columns, windowSizes=[7, 30], title='Orig
 #                                columns=['USDEUR=X_Close', 'GBPEUR=X_Close', 'BTC-EUR_Close'], 
 #                                windowSizes=[30],  # Single window size, can be [7], [30], or any custom list
 #                                title='Original vs Rolling Averages for Exchange Rates')
+
+
+
+
+
+
+
+
+def decomposeTimeSeries(df, column, period=12, title='Time-Series Decomposition'):
+    """
+    Function to decompose time series into trend, seasonality, and residuals for a specified column.
+    
+    Parameters:
+    - df: DataFrame containing the data.
+    - column: Name of the column to decompose.
+    - period: Periodicity of the seasonality (e.g., 12 for monthly data in a year).
+    - title: Title for the plot (default is 'Time-Series Decomposition').
+    """
+    # Decompose the time series for the column
+    decomposition = sm.tsa.seasonal_decompose(df[column], model='additive', period=period)
+    
+    # Plot the decomposition components
+    plt.figure(figsize=(14, 10))
+    
+    plt.subplot(411)
+    plt.plot(df.index, df[column], label=f'{column} Original', color='blue')
+    plt.title(f'{column} - Original')
+    
+    plt.subplot(412)
+    plt.plot(df.index, decomposition.trend, label='Trend', color='orange')
+    plt.title(f'{column} - Trend')
+    
+    plt.subplot(413)
+    plt.plot(df.index, decomposition.seasonal, label='Seasonality', color='green')
+    plt.title(f'{column} - Seasonal')
+    
+    plt.subplot(414)
+    plt.plot(df.index, decomposition.resid, label='Residuals', color='red')
+    plt.title(f'{column} - Residuals')
+    
+    plt.tight_layout()
+    plt.suptitle(f'{title} for {column}', fontsize=16, y=1.05)
+    plt.show()
+
+# Example usage for a single currency pair, e.g., 'USDEUR=X_Close'
+# decomposeTimeSeries(normalisedZscore2y, 
+#                     column='USDEUR=X_Close', 
+#                     period=365,  # Use 365 for yearly seasonality
+#                     title='Time-Series Decomposition')
+
+
 
