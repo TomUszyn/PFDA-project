@@ -260,3 +260,26 @@ def decomposeTimeSeries(df, column, period=12, title='Time-Series Decomposition'
 
 
 
+
+
+# Plotting function
+def plotVolatility(volatility, title):
+    fig, ax = plt.subplots(figsize=(12, 6))
+    volatility.plot(kind='bar', ax=ax, width=0.8)
+    
+    # Format the x-axis to show only 'yyyy-mm-dd'
+    ax.set_xticklabels(volatility.index.strftime('%Y-%m-%d'), rotation=45)
+    plt.title(f'{title} Volatility (Normalized Data)')
+    plt.ylabel('Standard Deviation (Normalized)')
+    plt.xlabel('Time')
+    # Customize the legend as per your request
+    plt.legend(loc='upper left', bbox_to_anchor=(1.003, 1), title='Currency',     
+               frameon=False, fancybox=True, shadow=True, fontsize=8, 
+               title_fontproperties=plt.matplotlib.font_manager.FontProperties(weight='bold', size=11), labelspacing=1.5)
+    
+    #plt.legend(title='Currency')
+    plt.tight_layout()
+    plt.show()
+    
+# Example usage
+# plotVolatility(normalisedZscore2y, title='Monthly')
