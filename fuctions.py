@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib import font_manager
 import statsmodels.api as sm
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+
 
 
 # Configure the logger to include timestamps
@@ -33,6 +37,7 @@ def logWarning(message, category, filename, lineno, file=None, line=None):
 
 
 
+
 # Function to flatten multi-index columns into single-level columns and rename 'Date' to 'Datetime' to match the other datasets
 def flattenColumns(df):
     """ Flatten multi-index columns into single-level columns """
@@ -42,8 +47,11 @@ def flattenColumns(df):
     # Flatten multi-index columns to single level
     df.columns = ['Datetime' if isinstance(col, tuple) and col[0] == 'Datetime' 
                   else '_'.join(col).strip() for col in df.columns]
-    
-    
+
+
+
+
+# Function to normalize the data using z-score normalization    
 def plotClosePrices(df, title='Close Prices'):
     """
     Function to plot 'Close' prices for a given DataFrame.
@@ -132,10 +140,13 @@ def descriptiveStatisticsWithSource(df, columns, analysisType):
 
     # Create a DataFrame for the results
     return pd.DataFrame(results)
+# Example usage
+# descriptiveStatisticsWithSource(normalisedZscore2y, ['USDEUR_Close', 'GBPEUR_Close', 'BTC-EUR_Close'], 'Exchange Rates')
 
 
 
 
+# Function to plot a correlation matrix heatmap for specific columns in a DataFrame
 def plotCorrelationMatrix(df, columns, title='Correlation Matrix'):
     """
     Function to plot a correlation matrix heatmap for specific columns in a DataFrame.
@@ -163,7 +174,7 @@ def plotCorrelationMatrix(df, columns, title='Correlation Matrix'):
 
 
 
-
+# Function to plot the distribution of the specified columns in a DataFrame
 def plotOriginalAndRollingAverages(df, columns, windowSizes=[7, 30], title='Original vs Rolling Averages'):
     """
     Function to plot the original 'Close' prices and rolling averages for specified columns.
@@ -213,9 +224,7 @@ def plotOriginalAndRollingAverages(df, columns, windowSizes=[7, 30], title='Orig
 
 
 
-
-
-
+# Function to plot the distribution of the specified columns in a DataFrame
 def decomposeTimeSeries(df, column, period=12, title='Time-Series Decomposition'):
     """
     Function to decompose time series into trend, seasonality, and residuals for a specified column.
@@ -261,8 +270,7 @@ def decomposeTimeSeries(df, column, period=12, title='Time-Series Decomposition'
 
 
 
-
-# Plotting function
+# Function to plot the distribution of the specified columns in a DataFrame
 def plotVolatility(volatility, title):
     fig, ax = plt.subplots(figsize=(12, 6))
     volatility.plot(kind='bar', ax=ax, width=0.8)
@@ -283,3 +291,61 @@ def plotVolatility(volatility, title):
     
 # Example usage
 # plotVolatility(normalisedZscore2y, title='Monthly')
+
+
+
+
+# Function to plot forecasted close prices using a simple linear regression model
+def forecastClosePrices(dataFrame, forecastColumn, forecastDays=30):
+    """
+    Forecast future close prices using a simple linear regression model
+    and plot both historical data and the regression line for all data.
+
+    Parameters:
+    - dataFrame: pandas.DataFrame
+        The input data with historical prices. The index should be datetime.
+    - forecastColumn: str
+        The column name containing the close prices to forecast.
+    - forecastDays: int, optional (default=30)
+        The number of future days to forecast.
+    """
+    # Convert the index to datetime if it's not already
+    dataFrame.index = pd.to_datetime(dataFrame.index)
+
+    # Create a simple integer column 'daysSinceStart' representing the number of days since the start
+    dataFrame['daysSinceStart'] = (dataFrame.index - dataFrame.index.min()).days
+
+    # Prepare the data for the linear regression model
+    xValues = dataFrame[['daysSinceStart']]  # Features (daysSinceStart)
+    yValues = dataFrame[forecastColumn]  # Target (close prices)
+
+    # Initialize and train the linear regression model
+    regressionModel = LinearRegression()
+    regressionModel.fit(xValues, yValues)
+
+    # Forecast future days (next forecastDays)
+    lastDay = dataFrame['daysSinceStart'].max()  # Last day in the dataset
+    futureDays = np.array([lastDay + i for i in range(1, forecastDays + 1)]).reshape(-1, 1)
+    forecastValues = regressionModel.predict(futureDays)
+
+    # Generate forecasted dates
+    forecastDates = pd.date_range(dataFrame.index[-1] + pd.Timedelta(days=1), periods=forecastDays, freq='D')
+
+    # Create the regression line for only historical data
+    historicalPredictions = regressionModel.predict(xValues)
+
+    # Plot the historical data, regression line, and forecasted data
+    plt.plot(dataFrame.index, dataFrame[forecastColumn], label='Historical Data', color='blue')
+    plt.plot(dataFrame.index, historicalPredictions, label='Regression Line (Historical Data)', color='green', linestyle='--')
+    plt.plot(forecastDates, forecastValues, label='Forecasted Data', color='red', linestyle='--')
+    plt.xlabel('Date')
+    plt.ylabel('Close Price')
+    plt.title(f'{forecastColumn} Forecast with Regression Line')
+    plt.legend()
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+    
+# Example usage
+# forecastClosePrices(normalisedZscore2y, forecastColumn='USDEUR=X_Close', forecastDays=30)

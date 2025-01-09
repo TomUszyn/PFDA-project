@@ -82,7 +82,6 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
    - **Strategy**:
      - Use historical data to focus on short-term forecasting (e.g., 30 days).
      - Use linear regression for basic forecasting, keeping the approach interpretable and transparent.
-     - Evaluate the accuracy of predictions by splitting the data into training and test sets.
 
 **Tips for Effectively Achieving Your Project Goals**
 
@@ -90,7 +89,7 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
 
    - **Rule**: Use clear and visually appealing plots to communicate findings effectively.
    - **Strategy**:
-     - Create interactive visualisations to allow dynamic exploration of trends (e.g., with dropdown menus for selecting currencies).
+     - Create clear, nice visualisations.
      - Label axes, add titles, and use consistent colour schemes for clarity.
     
 2. **Documentation**
@@ -110,8 +109,7 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
    - **Visualizations**:
      - Trend lines for each currency.
      - Volatility comparison charts.
-     - Interactive visualisations for exploring data dynamically (Bonus Features).
-
+  
    - **Final Report**: Include insights, observations, and potential real-world implications of the trends analysed.
 
 4. **Best Practices**
@@ -121,11 +119,6 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
    - Keep visualisations simple and intuitive, ensuring they convey the intended message.
    - Regularly save progress and version-control your work using platforms like GitHub.
 
-5. **Bonus Features**
-
-    - Explore the impact of external factors (e.g., inflation, major global events) on currency trends.
-
----
 
 ## Files and Structure
 
