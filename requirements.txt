@@ -1,5 +1,10 @@
+# Be sure than you have installed the following packages before running the Jupyter Notebook
 yfinance==0.2.49
-pandas
-sqlite3
-sklearn
-logging
+pandas==2.2.3
+sqlite3==3.45.3
+scikit-learn==1.5.2
+numpy==1.26.4
+matplotlib==3.10.0
+python==3.11.7
+conda==24.11.3
+statsmodels==0.14.4

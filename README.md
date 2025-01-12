@@ -1,3 +1,4 @@
+
 # Programming for Data Analytics - Assignments
 
 This repository contains the project for the "Programming for Data Analytics" course. It includes solutions to the programming tasks, as well as supporting data files used in the project.
@@ -16,8 +17,7 @@ This repository contains the project for the "Programming for Data Analytics" co
 
 ## About
 
-This project analyses and predicts currency trends for USD, GBP, BTC about EUR. By employing a systematic methodology, the analysis includes exploring trends, measuring volatility, smoothing data, decomposing time series, forecasting, and creating interactive visualizations. The insights from this project can assist in understanding currency behaviours and making data-driven decisions.
-
+This project analyses and predicts currency trends for USD, GBP, and BTC against EUR. By employing a systematic methodology, the analysis includes exploring trends, measuring volatility, smoothing data, decomposing time series, forecasting, and creating interactive visualizations. The insights from this project can assist in understanding currency behaviours and making data-driven decisions.
 
 ---
 
@@ -25,7 +25,7 @@ This project analyses and predicts currency trends for USD, GBP, BTC about EUR. 
 
 #### Overview:
 
-This project analyses and predicts currency trends for USD, GBP, Bitcoin in relation to EUR. By following a systematic approach, the analysis will include trend exploration, volatility measurement, data smoothing, time-series decomposition, and forecasting.
+This project analyses and predicts currency trends for USD, GBP, and Bitcoin in relation to EUR. By following a systematic approach, the analysis will include trend exploration, volatility measurement, data smoothing, time-series decomposition, and forecasting.
 
 ---
 
@@ -33,109 +33,108 @@ This project analyses and predicts currency trends for USD, GBP, Bitcoin in rela
 
 1. **Data Collection**
 
-   - **Rule**: Use reliable and consistent data sources (e.g., Yahoo Finance, CoinGecko) to ensure data accuracy and completeness.
-   - **Strategy**:
-     - Focus on historical data spanning at least 5 years to identify long-term trends and patterns.
-     - Save raw data in CSV format for reusability and shareability.
-     - Consider using a database (e.g., SQLite) for efficient data management.
+ - **Rule**: Use reliable and consistent data sources (e.g., Yahoo Finance, CoinGecko) to ensure data accuracy and completeness.
+ - **Strategy**:
+ - Focus on historical data spanning at least 5 years to identify long-term trends and patterns.
+ - Save raw data in CSV format for reusability and shareability.
+ - Consider using a database (e.g., SQLite) for efficient data management.
 
 2. **Data Cleaning**
 
-   - **Rule**: Ensure the dataset is free from errors, missing values, and inconsistencies.
-   - **Strategy**:
-     - Use forward-filling or interpolation techniques to handle missing values.
-     - Standardise date formats to YYYY-MM-DD.
-     - Normalize Bitcoin exchange rates or other data points to enable meaningful comparisons with traditional currencies.
+ - **Rule**: Ensure the dataset is free from errors, missing values, and inconsistencies.
+ - **Strategy**:
+ - Use forward-filling or interpolation techniques to handle missing values.
+ - Standardise date formats to YYYY-MM-DD.
+ - Normalise Bitcoin exchange rates or other data points to enable meaningful comparisons with traditional currencies.
 
 3. **Exploratory Data Analysis (EDA)**
 
-   - **Rule**: Begin with basic statistical summaries and visualizations to understand the data.
-   - **Strategy**:
-     - Use line charts to visualise historical trends.
-     - Compute descriptive statistics such as each currency's mean, median, standard deviation, and range.
-     - Explore relationships between currencies using correlation matrices and heatmaps.
+ - **Rule**: Begin with basic statistical summaries and visualisations to understand the data.
+ - **Strategy**:
+ - Use line charts to visualise historical trends.
+ - Compute descriptive statistics such as each currency's mean, median, standard deviation, and range.
+ - Explore relationships between currencies using correlation matrices and heatmaps.
 
 4. **Advanced Analysis**
 
-   - **Rolling Averages (Smoothing Trends)**
+ - **Rolling Averages (Smoothing Trends)**
 
-     - **Rule**: Highlight long-term trends by smoothing out short-term fluctuations.
-     - **Strategy**: Use rolling averages with appropriate window sizes (e.g., 7-day, 30-day) to observe medium and long-term patterns.
+ - **Rule**: Highlight long-term trends by smoothing out short-term fluctuations.
+ - **Strategy**: Use rolling averages with appropriate window sizes (e.g., 7-day, 30-day) to observe medium and long-term patterns.
 
-   - **Time-Series Decomposition**
+ - **Time-Series Decomposition**
 
-     - **Rule**: Decompose the data into trend, seasonality, and residual components for deeper insights.
-     - **Strategy**:
-       - Focus on yearly and monthly seasonality to identify recurring patterns.
-       - Analyse residuals for irregularities or unexpected events.
+ - **Rule**: Decompose the data into trend, seasonality, and residual components for deeper insights.
+ - **Strategy**:
+ - Focus on yearly and monthly seasonality to identify recurring patterns.
+ - Analyse residuals for irregularities or unexpected events.
 
-   - **Volatility Analysis**
+ - **Volatility Analysis**
 
-     - **Rule**: Measure and compare volatility across currencies.
-     - **Strategy**:
-       - Calculate standard deviations for monthly or yearly periods.
-       - Use bar plots to compare the volatility of each currency over time.
+ - **Rule**: Measure and compare volatility across currencies.
+ - **Strategy**:
+ - Calculate standard deviations for monthly or yearly periods.
+ - Use bar plots to compare the volatility of each currency over time.
 
 5. **Forecasting**
 
-   - **Rule**: Use simple predictive models to estimate future trends.
-   - **Strategy**:
-     - Use historical data to focus on short-term forecasting (e.g., 30 days).
-     - Use linear regression for basic forecasting, keeping the approach interpretable and transparent.
+ - **Rule**: Use simple predictive models to estimate future trends.
+ - **Strategy**:
+ - Use historical data to focus on short-term forecasting (e.g., 30 days).
+ - Use linear regression for basic forecasting, keeping the approach interpretable and transparent.
 
 **Tips for Effectively Achieving Your Project Goals**
 
-1. **Visualization**
+1. **Visualisation**
 
-   - **Rule**: Use clear and visually appealing plots to communicate findings effectively.
-   - **Strategy**:
-     - Create clear, nice visualisations.
-     - Label axes, add titles, and use consistent colour schemes for clarity.
-    
+ - **Rule**: Use clear and visually appealing plots to communicate findings effectively.
+ - **Strategy**:
+ - Create clear, nice visualisations.
+ - Label axes, add titles, and use consistent colour schemes for clarity.
+ 
 2. **Documentation**
 
-   - **Rule**: Maintain comprehensive and clear documentation for the project.
-   - **Strategy**:
-     - Write a README file that includes the project objectives, data sources, and instructions for running the analysis.
-     - Clearly outline each step in markdown or explanatory text within the project notebook.
-     - Summarise key findings and insights at the end of the analysis.
+ - **Rule**: Maintain comprehensive and clear documentation for the project.
+ - **Strategy**:
+ - Write a README file that includes the project objectives, data sources, and instructions for running the analysis.
+ - Clearly outline each step in markdown or explanatory text within the project notebook.
+ - Summarise key findings and insights at the end of the analysis.
 
 3. **Deliverables**
 
-   - **Clean Data Files**:
-     - Provide the cleaned and processed dataset in CSV format.
-     - Database File: Store all processed data in an SQLite database for quick querying.
+ - **Clean Data Files**:
+ - Provide the cleaned and processed dataset in CSV format.
+ - Database File: Store all processed data in an SQLite database for quick querying.
 
-   - **Visualizations**:
-     - Trend lines for each currency.
-     - Volatility comparison charts.
-  
-   - **Final Report**: Include insights, observations, and potential real-world implications of the trends analysed.
+ - **Visualisations**:
+ - Trend lines for each currency.
+ - Volatility comparison charts.
+ 
+ - **Final Report**: Include insights, observations, and potential real-world implications of the trends analysed.
 
 4. **Best Practices**
 
-   - Always validate your data sources to avoid bias or inaccuracies.
-   - Break down complex tasks into smaller, manageable steps.
-   - Keep visualisations simple and intuitive, ensuring they convey the intended message.
-   - Regularly save progress and version-control your work using platforms like GitHub.
-
+ - Always validate your data sources to avoid bias or inaccuracies.
+ - Break down complex tasks into smaller, manageable steps.
+ - Keep visualisations simple and intuitive, ensuring they convey the intended message.
+ - Regularly save progress and version-control your work using platforms like GitHub.
 
 ## Files and Structure
 
 The repository includes the following files and structure:
 
 - `data/`: A folder containing subdirectories: 
-    * `csv/`: A folder that stores CSV files.
-      * `allcurrencies/`: A folder that stores merged, cleaned data in CSV files.
-      * `normalised/`: A folder that stores normalised data in CSV files.
-      * `raw/`: A folder that stored raw data in CSV files.
-      * `statistics/`: A folder that stored CSV file with statistics.
-    * `db/`: A folder stores a database.
-- `analysingCurrencyTrends`: A Jupyter Notebook that analyzes and predicts currency trends.
+ * `csv/`: A folder that stores CSV files.
+ * `allcurrencies/`: A folder that stores merged, cleaned data in CSV files.
+ * `normalised/`: A folder that stores normalised data in CSV files.
+ * `raw/`: A folder that stored raw data in CSV files.
+ * `statistics/`: A folder that stored a CSV file with statistics.
+ * `db/`: A folder that stores a database.
+- `analysingCurrencyTrends`: A Jupyter Notebook that analyses and predicts currency trends.
 - `functions.py`: A file that contains functions used in the project.
 - `.gitignore`: A file to specify which files and directories should not be tracked by Git.
 - `README.md`: This file, which provides an overview of the repository.
-- `requirements.tx`t`: Dependencies needed to run the Jupyter Notebook.
+- `requirements.txt`: Dependencies needed to run the Jupyter Notebook.
 
 ## Getting Started
 
@@ -150,16 +149,19 @@ You may also need a tool like [Jupyter Notebook](https://jupyter.org/) or a Pyth
 ## Installing
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/TomUszyn/PFDA-project.git
-   
+ ```bash
+ git clone https://github.com/TomUszyn/PFDA-project.git
+ ```
+ 
 2. Navigate to the project directory:
-   ```bash
-   cd PFDA-project
+ ```bash
+ cd PFDA-project
+ ```
 
 3. Install any necessary dependencies (if a requirements.txt file exists):
-   ```bash
-   pip install -r requirements.txt
+ ```bash
+ pip install -r requirements.txt
+ ```
 
 ## Running the Code
 
@@ -168,17 +170,20 @@ You may also need a tool like [Jupyter Notebook](https://jupyter.org/) or a Pyth
 Since the code is implemented in Jupyter Notebooks (.ipynb files), you can run them using Jupyter Notebook or JupyterLab. Follow these instructions to get started:
 
 1. Install Jupyter: If you don't already have Jupyter installed, you can install it using pip:
-   ```bash
-   pip install notebook
+ ```bash
+ pip install notebook
+ ```
 
 2. Open the Jupyter Notebook:
-    * Navigate to the directory where the notebook file is located.
-    * Run the following command to start Jupyter Notebook:
-      ```bash
-      jupyter notebook
+ * Navigate to the directory where the notebook file is located.
+ * Run the following command to start Jupyter Notebook:
+ ```bash
+ Jupyter notebook
+```
+
 3. Launch the notebook:
-    * A browser window will open. Click on the desired `analysingCurrencyTrends.ipynb` file.
-    * You can now execute the code cells interactively by selecting a cell and clicking the "Run" button or pressing Shift + Enter.
+ * A browser window will open. Click on the desired `analysingCurrencyTrends.ipynb` file.
+ * You can now execute the code cells interactively by selecting a cell and clicking the "Run" button or pressing Shift + Enter.
 
 ### Option 2: Running the Code in VS Code
 
@@ -215,7 +220,7 @@ If your project uses a specific virtual environment (for example, `conda`), you 
 
 This repository is licensed under the MIT License - see the LICENSE file for more details.
 
-## Acknowledgments
+## Acknowledgements
 
 Thanks to the module lecturer and materials for providing the assignment context and datasets.
 Inspiration from various programming tutorials and resources that helped solve the tasks.
