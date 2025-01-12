@@ -290,7 +290,7 @@ def plotVolatility(volatility, title):
     plt.show()
     
 # Example usage
-# plotVolatility(normalisedZscore2y, title='Monthly')
+# plotVolatility(monthlyVolatility, title='Monthly')
 
 
 
